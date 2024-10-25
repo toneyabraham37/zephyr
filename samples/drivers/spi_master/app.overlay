@@ -1,0 +1,29 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+/ {
+	aliases {
+		spi-0 = &sercom6;
+	};
+};
+
+
+&sercom6 {
+	status = "okay";
+	compatible = "mchp,v1-spi";
+	dipo = <3>; //PAD no.
+	dopo = <0>; //PAD no.
+	#address-cells = <1>;
+	#size-cells = <0>;
+	cs-gpios = <&portd 1 GPIO_ACTIVE_HIGH>;
+	pinctrl-0 = <&sercom6_spi_default>;
+	pinctrl-names = "default";
+};
+
+&pinctrl {
+	sercom6_spi_default: sercom6_spi_default {
+		group1 {
+			pinmux = <PC4C_SERCOM6_PAD0>,
+			         <PC7C_SERCOM6_PAD3>,
+			         <PC5C_SERCOM6_PAD1>;
+		};
+	};
+};
