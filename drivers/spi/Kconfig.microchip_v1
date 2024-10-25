@@ -1,0 +1,14 @@
+# MICROCHIP V1 SERCOM SPI
+
+# Copyright (c) 2017 Google LLC.
+# SPDX-License-Identifier: Apache-2.0
+
+config SPI_MICROCHIP_V1
+    bool "Microchip MICROCHIP V1 series SERCOM SPI driver"
+    default y
+    depends on DT_HAS_MICROCHIP_V1_SPI_ENABLED
+    select DMA if SPI_ASYNC
+    help
+      Enable support for the Microchip MICROCHIP V1 series SERCOM SPI driver.
+
+# DT_HAS_MICROCHIP_V1_SPI_ENABLED

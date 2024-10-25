@@ -8,7 +8,7 @@
 
 &sercom6 {
 	status = "okay";
-	compatible = "atmel,sam0-spi";
+	compatible = "microchip,v1-spi";
 	dipo = <3>; //PAD no.
 	dopo = <0>; //PAD no.
 	#address-cells = <1>;

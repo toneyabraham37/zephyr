@@ -401,6 +401,7 @@ marvell	Marvell Technology Group Ltd.
 maxbotix	MaxBotix Inc.
 maxim	Maxim Integrated Products
 mbvl	Mobiveil Inc.
+mchp	Microchip Technology
 mcube	mCube
 meas	Measurement Specialties
 mecer	Mustek Limited
