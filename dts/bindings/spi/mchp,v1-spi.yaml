@@ -3,7 +3,7 @@
 
 description: Microchip V1 SERCOM SPI controller
 
-compatible: "microchip,v1-spi"
+compatible: "mchp,v1-spi"
 
 include:
   - name: spi-controller.yaml

@@ -1,0 +1,14 @@
+# Atmel MCHP V1 SERCOM SPI
+
+# Copyright (c) 2017 Google LLC.
+# SPDX-License-Identifier: Apache-2.0
+
+config SPI_MCHP_V1
+    bool "Microchip MCHP V1 series SERCOM SPI driver"
+    default y
+    depends on DT_HAS_MCHP_V1_SPI_ENABLED
+    select DMA if SPI_ASYNC
+    help
+      Enable support for the Microchip MCHP V1 series SERCOM SPI driver.
+
+# DT_HAS_MCHP_V1_SPI_ENABLED
