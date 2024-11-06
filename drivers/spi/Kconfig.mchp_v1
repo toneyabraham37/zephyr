@@ -11,10 +11,24 @@ config SPI_MCHP_V1
     help
       Enable support for the Microchip MCHP V1 series SERCOM SPI driver.
 
-if SPI_MCHP_V1
 
-config SPI_MCHP_INTERRUPT_DRIVEN
-	bool "MCHP SPI interrupt mode"
-	help
-	  Enables interrupt support for MCHP SPI driver.
-endif 
+menu "SPI ASYNC SELECTION"
+  depends on SPI_MCHP_V1 && SPI_ASYNC
+
+choice 
+    prompt "Select Async Mode Interrupt or DMA"
+    default SPI_MCHP_INTERRUPT_DRIVEN
+    help
+      Choose between interrupt-driven or DMA mode for the MCHP SPI driver.
+
+    config SPI_MCHP_INTERRUPT_DRIVEN
+    bool "Interrupt-Driven"
+    help
+      Enables interrupt support for MCHP SPI driver.
+
+    config SPI_DMA_DRIVEN
+    bool "DMA"
+    help
+      Enables DMA support for MCHP SPI driver.
+endchoice
+endmenu
