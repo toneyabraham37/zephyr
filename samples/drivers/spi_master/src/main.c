@@ -31,6 +31,11 @@ const char tx_data[] = "Test Data from SPI Master";
 
 static const struct device *spi_dev;
 
+
+void cb_for_dma_cspi(){
+    printf("Callback triggered");
+}
+
 int main(void)
 {
     // SPI config for transmit
@@ -83,7 +88,7 @@ int main(void)
     while (1)
     {
         // Send and receive data over SPI (full-duplex communication)
-        int ret = spi_transceive(spi_dev, &spis_config, &tx_bufs, &rx_bufs);
+        int ret = spi_transceive_cb(spi_dev, &spis_config, &tx_bufs, &rx_bufs,&cb_for_dma_cspi,NULL);
         if (ret == 0)
         {
             printk("Sent: %s\n", tx_data);

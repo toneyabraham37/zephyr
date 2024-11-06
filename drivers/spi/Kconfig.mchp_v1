@@ -11,4 +11,10 @@ config SPI_MCHP_V1
     help
       Enable support for the Microchip MCHP V1 series SERCOM SPI driver.
 
-# DT_HAS_MCHP_V1_SPI_ENABLED
+if SPI_MCHP_V1
+
+config SPI_MCHP_INTERRUPT_DRIVEN
+	bool "MCHP SPI interrupt mode"
+	help
+	  Enables interrupt support for MCHP SPI driver.
+endif 

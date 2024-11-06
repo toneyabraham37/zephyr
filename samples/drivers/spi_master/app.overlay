@@ -16,6 +16,8 @@
 	cs-gpios = <&portd 1 GPIO_ACTIVE_HIGH>;
 	pinctrl-0 = <&sercom6_spi_default>;
 	pinctrl-names = "default";
+	dmas = <&dmac 1 17>, <&dmac 0 16>;
+    dma-names = "tx", "rx";
 };
 
 &pinctrl {
