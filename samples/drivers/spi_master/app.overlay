@@ -2,9 +2,24 @@
 / {
 	aliases {
 		spi-0 = &sercom6;
+		spi-1 = &sercom4;
 	};
 };
 
+
+&sercom4 {
+	status = "okay";
+	compatible = "mchp,v1-spi";
+	dipo = <3>;
+	dopo = <0>;
+	#address-cells = <1>;
+	#size-cells = <0>;
+	cs-gpios = <&portd 1 GPIO_ACTIVE_HIGH>;
+	pinctrl-0 = <&sercom6_spi_default>;
+	pinctrl-names = "default";
+	dmas = <&dmac 1 13>, <&dmac 0 12>;
+	dma-names = "tx", "rx";
+};
 
 &sercom6 {
 	status = "okay";
@@ -13,11 +28,11 @@
 	dopo = <0>; //PAD no.
 	#address-cells = <1>;
 	#size-cells = <0>;
-	cs-gpios = <&portd 1 GPIO_ACTIVE_HIGH>;
-	pinctrl-0 = <&sercom6_spi_default>;
+	cs-gpios = <&portb 28 GPIO_ACTIVE_HIGH>;
+	pinctrl-0 = <&sercom4_spi_default>;
 	pinctrl-names = "default";
 	dmas = <&dmac 1 17>, <&dmac 0 16>;
-    dma-names = "tx", "rx";
+	dma-names = "tx", "rx";
 };
 
 &pinctrl {
@@ -26,6 +41,14 @@
 			pinmux = <PC4C_SERCOM6_PAD0>,
 			         <PC7C_SERCOM6_PAD3>,
 			         <PC5C_SERCOM6_PAD1>;
+		};
+	};
+
+	sercom4_spi_default: sercom4_spi_default {
+		group1 {
+			pinmux = <PB26D_SERCOM4_PAD1>,
+			         <PB27D_SERCOM4_PAD0>,
+			         <PB29D_SERCOM4_PAD3>;
 		};
 	};
 };

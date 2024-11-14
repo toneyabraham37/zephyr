@@ -81,17 +81,17 @@
 	pinctrl-names = "default";
 };
 
-&sercom4 {
-	status = "okay";
-	compatible = "atmel,sam0-spi";
-	dipo = <3>;
-	dopo = <0>;
-	#address-cells = <1>;
-	#size-cells = <0>;
+// &sercom4 {
+// 	status = "okay";
+// 	compatible = "atmel,sam0-spi";
+// 	dipo = <3>;
+// 	dopo = <0>;
+// 	#address-cells = <1>;
+// 	#size-cells = <0>;
 
-	pinctrl-0 = <&sercom4_spi_default>;
-	pinctrl-names = "default";
-};
+// 	pinctrl-0 = <&sercom4_spi_default>;
+// 	pinctrl-names = "default";
+// };
 
 &sercom7 {
 	status = "okay";
