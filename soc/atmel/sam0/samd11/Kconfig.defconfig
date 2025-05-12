@@ -1,0 +1,8 @@
+
+
+if SOC_SERIES_SAMD11
+
+config NUM_IRQS
+	default 18
+
+endif # SOC_SERIES_SAMD11

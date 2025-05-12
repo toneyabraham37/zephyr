@@ -136,3 +136,6 @@ family:
     - name: samr35j16b
     - name: samr35j17b
     - name: samr35j18b
+  - name: samd11
+    socs:
+    - name: samd11d14am

@@ -1,0 +1,80 @@
+/*
+ * Copyright (c) 2017 Google LLC.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+ #include <atmel/samd1x.dtsi>
+
+ / {
+     aliases {
+        //  tc-6 = &tc6;
+     };
+ 
+     soc {
+         usb0: usb@41005000 {
+             compatible = "atmel,sam0-usb";
+             status = "disabled";
+             reg = <0x41005000 0x1000>;
+             interrupts = <7 0>;
+             num-bidir-endpoints = <8>;
+         };
+ 
+         dmac: dmac@41004800 {
+             compatible = "atmel,sam0-dmac";
+             reg = <0x41004800 0x50>;
+             interrupts = <6 0>;
+             #dma-cells = <2>;
+         };
+ 
+         tcc0: tcc@42001400 {
+             compatible = "atmel,sam0-tcc";
+             reg = <0x42001400 0x80>;
+             interrupts = <12 0>;
+             clocks = <&gclk 17>, <&pm 0x20 5>;
+             clock-names = "GCLK", "PM";
+ 
+             channels = <1>;
+             counter-size = <24>;
+         };
+     };
+ };
+ 
+ &dac0 {
+     interrupts = <17 0>;
+     clocks = <&gclk 22>, <&pm 0x20 10>;
+     clock-names = "GCLK", "PM";
+ };
+ 
+//  &sercom0 {
+//      interrupts = <9 0>;
+//      clocks = <&gclk 14>, <&pm 0x20 2>;
+//      clock-names = "GCLK", "PM";
+//  };
+ 
+//  &sercom1 {
+//      interrupts = <10 0>;
+//      clocks = <&gclk 15>, <&pm 0x20 3>;
+//      clock-names = "GCLK", "PM";
+//  };
+ 
+//  &sercom2 {
+//      interrupts = <11 0>;
+//      clocks = <&gclk 16>, <&pm 0x20 4>;
+//      clock-names = "GCLK", "PM";
+//  };
+
+//  &tc1 {
+//      interrupts = <13 0>;
+//      clocks = <&gclk 18>, <&pm 0x20 6>;
+//      clock-names = "GCLK", "PM";
+//  };
+ 
+//  &adc {
+//      clocks = <&gclk 15>, <&pm 0x20 8>;
+//      clock-names = "GCLK", "PM";
+//      interrupts = <15 0>;
+//      interrupt-names = "resrdy";
+
+//  };
+ 
